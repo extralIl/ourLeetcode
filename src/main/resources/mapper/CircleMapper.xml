@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.neu.mapper.CircleMapper">
+
+    <select id="com.neu.mapper.CircleMapper.selectArticlesByPages" resultType="com.neu.entity.Article">
+        select id,title,browse,initialize_time,edit_time,likes,thinks,surprises from article limit #{startPage},#{endPage}
+    </select>
+
+    <select id="com.neu.mapper.CircleMapper.selectTopicByArticleId" resultType="java.lang.String">
+        select topic_name from topic where id = #{id}
+    </select>
+
+    <select id="com.neu.mapper.CircleMapper.selectLabelByLinkId" resultType="com.neu.entity.LeetcodeLabel">
+        select label_name from leetcode_label where link_id = #{id}
+    </select>
+
+
+
+
+</mapper>
