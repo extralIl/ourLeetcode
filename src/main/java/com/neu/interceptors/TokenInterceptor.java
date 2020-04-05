@@ -41,13 +41,13 @@ public class TokenInterceptor implements HandlerInterceptor {
 //      使用正则表达式匹配url
 
         boolean tokenValidity = tokenService.checkToken(token);
-//      没有通过，返回错误
-        if(!tokenValidity){
-            throw new TokenInvalidException();
-        }
+//      没有通过，返回错误，最后解除注释
+//        if(!tokenValidity){
+//            throw new TokenInvalidException();
+//        }
 
 
-        return false;
+        return true;
     }
 
 

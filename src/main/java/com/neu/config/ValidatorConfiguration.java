@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Configuration;
 
 import javax.validation.Validation;
 import javax.validation.ValidatorFactory;
-import javax.xml.validation.Validator;
+import javax.validation.Validator;
 
 /**
  * @author: treblez
@@ -23,7 +23,7 @@ public class ValidatorConfiguration {
                 .configure()
                 .addProperty( "hibernate.validator.fail_fast", "true" )
                 .buildValidatorFactory();
-        Validator validator = (Validator) validatorFactory.getValidator();
+        Validator validator = validatorFactory.getValidator();
 
         return validator;
     }
