@@ -2,7 +2,7 @@ package com.neu.entity;
 
 import java.time.LocalDate;
 
-public class CommentsArticle {
+public class ArticleComment {
     private Integer id;
     private Integer creatorId;
     private Integer linkId;
@@ -11,6 +11,7 @@ public class CommentsArticle {
     private Integer likes;
     private Integer dislikes;
     private LocalDate editTime;
+    private Integer reported;//被举报数
 
     public Integer getId() {
         return id;
@@ -18,6 +19,14 @@ public class CommentsArticle {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public Integer getLinkId() {
+        return linkId;
+    }
+
+    public void setLinkId(Integer linkId) {
+        this.linkId = linkId;
     }
 
     public Integer getCreatorId() {
@@ -28,13 +37,6 @@ public class CommentsArticle {
         this.creatorId = creatorId;
     }
 
-    public Integer getLinkId() {
-        return linkId;
-    }
-
-    public void setLinkId(Integer linkId) {
-        this.linkId = linkId;
-    }
 
     public Integer getArticleId() {
         return articleId;
@@ -74,5 +76,13 @@ public class CommentsArticle {
 
     public void setEditTime(LocalDate editTime) {
         this.editTime = editTime;
+    }
+
+    public Integer getReported() {
+        return reported;
+    }
+
+    public void setReported(Integer reported) {
+        this.reported = reported;
     }
 }

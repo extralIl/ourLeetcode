@@ -1,28 +1,92 @@
 package com.neu.dto.response;
 
 import com.neu.vo.Author;
-import com.neu.vo.Reactions;
-import com.sun.org.apache.xpath.internal.operations.Bool;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
 
 public class ArticlePreview {
     private Integer id;
     private String title;
-    private Integer hitCount;//点击数
-    private LocalDateTime createdAt;
-    private LocalDateTime updateAt;
+    private Integer browse;//点击数
+    private String summary;//概括
+    private LocalDateTime initializeTime;
+    private LocalDateTime editTime;
     private String thumbnail;//缩略图
-    private String resourceType;//可以填写ARTICLE暂时不知道作用
-    private String articleType;//可以填写UNDEFINED 暂时不知道作用
     private String topicName;//话题名,比如算法和数据结构
     private List<String> tags;//存放标签的列表
-    private Author author;//用户
-    private List<Reactions> reactions;//点赞数等
-    private Boolean isMyFavorite;//是否被收藏
+    private Author author;//作者
+    private Integer likes;
+    private Integer thinks;
+    private Integer surprises;
+    private Integer articleComments;//评论数
+//    private Boolean isMyFavorite;//是否被收藏
+
+
+
+    public String getSummary() {
+        return summary;
+    }
+
+    public void setSummary(String summary) {
+        this.summary = summary;
+    }
+
+    public Integer getArticleComments() {
+        return articleComments;
+    }
+
+    public void setArticleComments(Integer articleComments) {
+        this.articleComments = articleComments;
+    }
+
+    public Integer getBrowse() {
+        return browse;
+    }
+
+    public void setBrowse(Integer browse) {
+        this.browse = browse;
+    }
+
+    public LocalDateTime getInitializeTime() {
+        return initializeTime;
+    }
+
+    public void setInitializeTime(LocalDateTime initializeTime) {
+        this.initializeTime = initializeTime;
+    }
+
+    public LocalDateTime getEditTime() {
+        return editTime;
+    }
+
+    public void setEditTime(LocalDateTime editTime) {
+        this.editTime = editTime;
+    }
+
+    public Integer getLikes() {
+        return likes;
+    }
+
+    public void setLikes(Integer likes) {
+        this.likes = likes;
+    }
+
+    public Integer getThinks() {
+        return thinks;
+    }
+
+    public void setThinks(Integer thinks) {
+        this.thinks = thinks;
+    }
+
+    public Integer getSurprises() {
+        return surprises;
+    }
+
+    public void setSurprises(Integer surprises) {
+        this.surprises = surprises;
+    }
 
     public Integer getId() {
         return id;
@@ -40,29 +104,7 @@ public class ArticlePreview {
         this.title = title;
     }
 
-    public Integer getHitCount() {
-        return hitCount;
-    }
 
-    public void setHitCount(Integer hitCount) {
-        this.hitCount = hitCount;
-    }
-
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public LocalDateTime getUpdateAt() {
-        return updateAt;
-    }
-
-    public void setUpdateAt(LocalDateTime updateAt) {
-        this.updateAt = updateAt;
-    }
 
     public String getThumbnail() {
         return thumbnail;
@@ -72,21 +114,7 @@ public class ArticlePreview {
         this.thumbnail = thumbnail;
     }
 
-    public String getResourceType() {
-        return resourceType;
-    }
 
-    public void setResourceType(String resourceType) {
-        this.resourceType = resourceType;
-    }
-
-    public String getArticleType() {
-        return articleType;
-    }
-
-    public void setArticleType(String articleType) {
-        this.articleType = articleType;
-    }
 
     public String getTopicName() {
         return topicName;
@@ -112,49 +140,8 @@ public class ArticlePreview {
         this.author = author;
     }
 
-    public List<Reactions> getReactions() {
-        return reactions;
-    }
 
-    public void setReactions(List<Reactions> reactions) {
-        this.reactions = reactions;
-    }
 
-    public Boolean getMyFavorite() {
-        return isMyFavorite;
-    }
-
-    public void setMyFavorite(Boolean myFavorite) {
-        isMyFavorite = myFavorite;
-    }
-
-    //根据给的三种数,创建ReactionsList
-    public void createReactions(Integer likes,Integer thinks,Integer surprises){
-
-        List<Reactions> reactionsList = new ArrayList<>();
-
-        if(likes!=null){
-            Reactions reactions = new Reactions();
-            reactions.setCount(likes);
-            reactions.setReactionType("UPVOTE");
-            reactionsList.add(reactions);
-        }
-        if (thinks!=null){
-            Reactions reactions = new Reactions();
-            reactions.setCount(thinks);
-            reactions.setReactionType("CONFUSED");
-            reactionsList.add(reactions);
-        }
-        if (surprises!=null){
-            Reactions reactions = new Reactions();
-            reactions.setCount(surprises);
-            reactions.setReactionType("AWESOME");
-            reactionsList.add(reactions);
-        }
-
-        setReactions(reactionsList);
-
-    }
 
 
 

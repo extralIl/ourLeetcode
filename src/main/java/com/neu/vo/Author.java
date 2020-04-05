@@ -1,16 +1,26 @@
 package com.neu.vo;
 
+import com.neu.entity.LeetcodeUser;
 import org.apache.catalina.User;
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class Author {
-    private String userName;//用户的自定义域名
-    private String realName;//用户名
+    private Integer id;
+
+    private String userName;
+
     private String userAvatar;//头像url
 
-    public Author(String userName, String realName, String userAvatar) {
-        this.userName = userName;
-        this.realName = realName;
-        this.userAvatar = userAvatar;
+    public Author(){
+
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getUserName() {
@@ -21,13 +31,6 @@ public class Author {
         this.userName = userName;
     }
 
-    public String getRealName() {
-        return realName;
-    }
-
-    public void setRealName(String realName) {
-        this.realName = realName;
-    }
 
     public String getUserAvatar() {
         return userAvatar;
@@ -36,4 +39,12 @@ public class Author {
     public void setUserAvatar(String userAvatar) {
         this.userAvatar = userAvatar;
     }
+
+    public Author(LeetcodeUser user){
+        this.id = user.getId();
+        this.userName = user.getUserName();
+        this.userAvatar = user.getUserAvatar();
+
+    }
+
 }

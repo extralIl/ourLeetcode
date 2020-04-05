@@ -1,7 +1,9 @@
 package com.neu.entity;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.neu.dto.request.ArticleRequest;
+
+import java.util.Date;
 
 public class Article {
 
@@ -9,16 +11,38 @@ public class Article {
     private Integer creatorId;
     private Integer topicId;
     private String title;
+    private String thumbnail;
     private String message;
+    private String summary;//概括
     private Integer articleComments;
     private Integer likes;
     private Integer thinks;
     private Integer surprises;
-    private LocalDateTime initializeTime;
-    private LocalDateTime editTime;
+    private Date initializeTime;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private Date editTime;
     private Integer follows;
     private Integer browse;
 
+
+    public Article() {
+    }
+
+    public String getSummary() {
+        return summary;
+    }
+
+    public void setSummary(String summary) {
+        this.summary = summary;
+    }
+
+    public String getThumbnail() {
+        return thumbnail;
+    }
+
+    public void setThumbnail(String thumbnail) {
+        this.thumbnail = thumbnail;
+    }
     public Integer getId() {
         return id;
     }
@@ -91,19 +115,19 @@ public class Article {
         this.surprises = surprises;
     }
 
-    public LocalDateTime getInitializeTime() {
+    public Date getInitializeTime() {
         return initializeTime;
     }
 
-    public void setInitializeTime(LocalDateTime initializeTime) {
+    public void setInitializeTime(Date initializeTime) {
         this.initializeTime = initializeTime;
     }
 
-    public LocalDateTime getEditTime() {
+    public Date getEditTime() {
         return editTime;
     }
 
-    public void setEditTime(LocalDateTime editTime) {
+    public void setEditTime(Date editTime) {
         this.editTime = editTime;
     }
 
